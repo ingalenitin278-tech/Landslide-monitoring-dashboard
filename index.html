@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraGuard | AI Landslide Monitoring</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+    <div class="app">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">▲</div>
+                <div>
+                    <h2>TerraGuard</h2>
+                    <span>AI Risk Monitoring</span>
+                </div>
+            </div>
+
+            <nav>
+                <a href="#" class="active"><span>📊</span> Dashboard</a>
+                <a href="#"><span>📍</span> Live Risk Map</a>
+                <a href="#"><span>⚠️</span> Alert Logs</a>
+            </nav>
+
+            <!-- SEARCH BAR SECTION -->
+            <div class="search-box">
+                <h3>Search Location</h3>
+                <div class="search-input-group">
+                    <input type="text" id="cityInput" placeholder="Enter city name..." />
+                    <button id="searchBtn">Search</button>
+                </div>
+            </div>
+
+            <!-- ACTIVE SEARCH RESULT METRICS -->
+            <div class="card weather-card" id="cityResultCard" style="display:none;">
+                <h4 id="resCityName">City Name</h4>
+                <div class="metric-row">
+                    <span>Current Temp:</span>
+                    <strong id="resTemp">-- °C</strong>
+                </div>
+                <div class="metric-row">
+                    <span>Landslide Risk:</span>
+                    <strong id="resRisk">-- %</strong>
+                </div>
+                <div class="metric-row">
+                    <span>Risk Status:</span>
+                    <span id="resStatusBadge" class="badge">--</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <header class="header">
+                <h1>AI Landslide Risk Assessment</h1>
+                <p>Real-time weather analytics and risk forecasting</p>
+            </header>
+
+            <!-- TOP METRICS -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span>Monitored Zones</span>
+                    <h2 id="totalZones">5</h2>
+                </div>
+                <div class="stat-card danger">
+                    <span>High Risk Alert Zones</span>
+                    <h2 id="highRiskZones">2</h2>
+                </div>
+                <div class="stat-card warning">
+                    <span>Moderate Risk Zones</span>
+                    <h2 id="modRiskZones">1</h2>
+                </div>
+            </div>
+
+            <!-- MAP CONTAINER -->
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+
+            <!-- MONITORED LOCATIONS LIST -->
+            <section class="locations-section">
+                <h3>Monitored High Risk Regions</h3>
+                <div class="location-list" id="locationList"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Leaflet Map JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
